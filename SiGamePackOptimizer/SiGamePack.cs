@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 
@@ -37,8 +38,10 @@ namespace SiGamePackOptimizer
 
         private Asset ConvertEntryToAsset(string entry)
         {
-            var name = Path.GetFileName(entry);
-            var prefix = Path.GetDirectoryName(entry);
+            var segments = entry.Split('\\');
+            var prefix = segments[0];
+            var name = segments[1];
+            
             var content = _zipFile.GetEntryContent(entry);
 
             return new Asset {Name = name, Type = prefix.ToAssetType(), Content = content};
