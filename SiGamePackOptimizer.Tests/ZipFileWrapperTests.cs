@@ -60,11 +60,11 @@ namespace SiGamePackOptimizer.Tests
         public void ContentOfEntryIsReturned()
         {
             // assert
-            var expectedData = File.ReadAllBytes(Path.Combine(TestFilesDir, "content.xml"));
+            var expectedData = File.ReadAllBytes(Path.Combine(TestFilesDir, @"pic.jpg"));
 
             // act
             _target.Unpack(_archive);
-            var result = _target.GetEntryContent("content.xml");
+            var result = _target.GetEntryContent(@"Images/unnamed%20(1).jpg");
 
             // assert
             result.Should().BeEquivalentTo(expectedData);
