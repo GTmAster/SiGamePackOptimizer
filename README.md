@@ -1,3 +1,4 @@
+![unit tests shield](https://img.shields.io/github/workflow/status/GTmAster/SiGamePackOptimizer/Unit%20tests/master)
 # SiGamePackOptimizer
 Optimizer for SiGame question packs
 
