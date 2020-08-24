@@ -9,6 +9,7 @@ namespace SiGamePackOptimizer.Tests.ImageSizeReduce
     public class MagickImageProcessorTests
     {
         private readonly MagickImageProcessor _target;
+        private const string TestFilesDir = "TestFiles";
 
         public MagickImageProcessorTests()
         {
@@ -16,13 +17,13 @@ namespace SiGamePackOptimizer.Tests.ImageSizeReduce
         }
 
         [Theory]
-        [InlineData(@"TestFiles\1000x1503.jpg", 1000, 1503)]
-        [InlineData(@"TestFiles\1410x804.jpg", 1410, 804)]
-        [InlineData(@"TestFiles\512x288.png", 512, 288)]
+        [InlineData(@"1000x1503.jpg", 1000, 1503)]
+        [InlineData(@"1410x804.jpg", 1410, 804)]
+        [InlineData(@"512x288.png", 512, 288)]
         public void ImageSizeIsReturned(string testFilename, int expectedWidth, int expectedHeight)
         {
             // arrange
-            var fileContent = File.ReadAllBytes(testFilename);
+            var fileContent = File.ReadAllBytes(Path.Combine(TestFilesDir, testFilename));
 
             // act
             var result = _target.GetImageSize(fileContent);
@@ -33,13 +34,13 @@ namespace SiGamePackOptimizer.Tests.ImageSizeReduce
         }
 
         [Theory]
-        [InlineData(@"TestFiles\1000x1503.jpg", 800, 600)]
-        [InlineData(@"TestFiles\1410x804.jpg", 100, 100)]
-        [InlineData(@"TestFiles\512x288.png", 200, 300)]
+        [InlineData(@"1000x1503.jpg", 800, 600)]
+        [InlineData(@"1410x804.jpg", 100, 100)]
+        [InlineData(@"512x288.png", 200, 300)]
         public void ImageIsResized(string testFilename, int width, int height)
         {
             // arrange
-            var fileContent = File.ReadAllBytes(testFilename);
+            var fileContent = File.ReadAllBytes(Path.Combine(TestFilesDir, testFilename));
 
             // act
             var result = _target.EncodeImage(fileContent, new Size(width, height), 50);
