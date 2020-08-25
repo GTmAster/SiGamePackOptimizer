@@ -38,10 +38,16 @@ namespace SiGamePackOptimizer
 
         private Asset ConvertEntryToAsset(string entry)
         {
-            var segments = entry.Split('\\');
-            var prefix = segments[0];
-            var name = segments[1];
-            
+            var segments = entry.Split('/');
+
+            var prefix = string.Empty;
+            var name = entry;
+            if (segments.Length == 2)
+            {
+                prefix = segments[0];
+                name = segments[1];
+            }
+
             var content = _zipFile.GetEntryContent(entry);
 
             return new Asset {Name = name, Type = prefix.ToAssetType(), Content = content};

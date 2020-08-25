@@ -18,7 +18,7 @@ namespace SiGamePackOptimizer.Tests
             _zipFileMock
                 .Setup(x => x.Entries)
                 .Returns(new[]
-                    {@"Audio\1.mp3", @"Audio\2.mp3", @"Images\1.jpg", @"Images\2.png", @"Video\1.mpg", @"Video\2.mpg"});
+                    {@"Audio/1.mp3", @"Audio/2.mp3", @"Images/1.jpg", @"Images/2.png", @"Video/1.mpg", @"Video/2.mpg"});
             _zipFileMock.Setup(x => x.GetEntryContent(It.IsAny<string>())).Returns(new byte[0]);
 
             _target = new SiGamePack(_zipFileMock.Object);
