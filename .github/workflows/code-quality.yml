@@ -12,17 +12,14 @@ jobs:
     - uses: actions/checkout@v2
       with:
         fetch-depth: 0
-    - name: Setup .NET Core
-      uses: actions/setup-dotnet@v1
+    - uses: Secbyte/dotnet-sonarscanner@v2.3
       with:
-        dotnet-version: 3.1.301
-    - name: Install dependencies
-      run: |
-        dotnet restore
-        dotnet tool install --global dotnet-sonarscanner
-    - name: Analyze
-      run: |
-        dotnet sonarscanner begin /k:"SiGamePackOptimizer" /o:"gtmaster-github" /d:sonar.login="${{ secrets.SONAR_TOKEN }}" /d:sonar.cs.opencover.reportsPaths="coverage.xml" /d:sonar.host.url="https://sonarcloud.io"
-        dotnet dotnet build --configuration Release --no-restore
-        dotnet test --no-restore /p:CollectCoverage=true /p:CoverletOutputFormat=opencover /p:CoverletOutput='../coverage.xml'
-        dotnet sonarscanner end /d:sonar.login="${{ secrets.SONAR_TOKEN }}"
+        buildCommand: dotnet build
+        testCommand: dotnet test /p:CollectCoverage=true /p:CoverletOutputFormat=opencover /p:CoverletOutput='../coverage.xml'
+        projectKey: SiGamePackOptimizer
+        projectName: SiGamePackOptimizer
+        sonarOrganisation: gtmaster-github
+        beginArguments: /d:sonar.cs.opencover.reportsPaths="coverage.xml"
+      env:
+        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
