@@ -1,0 +1,25 @@
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+      types: [opened, synchronize, reopened]
+name: Code analyze
+jobs:
+  sonarcloud:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        fetch-depth: 0
+    - uses: Secbyte/dotnet-sonarscanner@v2.3
+      with:
+        buildCommand: dotnet build
+        testCommand: dotnet test /p:CollectCoverage=true /p:CoverletOutputFormat=opencover /p:CoverletOutput='../coverage.xml'
+        projectKey: SiGamePackOptimizer
+        projectName: SiGamePackOptimizer
+        sonarOrganisation: gtmaster-github
+        beginArguments: /d:sonar.cs.opencover.reportsPaths="coverage.xml"
+      env:
+        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
