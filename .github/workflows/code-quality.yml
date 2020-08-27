@@ -19,7 +19,7 @@ jobs:
     - name: Install dependencies
       run: dotnet restore
     - name: Test
-      run: dotnet dotcover test --no-restore --dcReportType=HTML --dcOutput=coverage.html
+      run: dotnet test --no-restore /p:CollectCoverage=true /p:CoverletOutputFormat=opencover /p:CoverletOutput='../coverage.xml'
     - name: SonarCloud Scan
       uses: sonarsource/sonarcloud-github-action@master
       env:
