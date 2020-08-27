@@ -22,7 +22,7 @@ jobs:
         dotnet tool install --global dotnet-sonarscanner
     - name: Analyze
       run: |
-        dotnet sonarscanner begin /k:"SiGamePackOptimizer" /o:"gtmaster-github" /d:sonar.login="${{ secrets.SONAR_TOKEN }}" /d:sonar.cs.opencover.reportsPaths="coverage.xml"
+        dotnet sonarscanner begin /k:"SiGamePackOptimizer" /o:"gtmaster-github" /d:sonar.login="${{ secrets.SONAR_TOKEN }}" /d:sonar.cs.opencover.reportsPaths="coverage.xml" /d:sonar.host.url="https://sonarcloud.io"
         dotnet dotnet build --configuration Release --no-restore
         dotnet test --no-restore /p:CollectCoverage=true /p:CoverletOutputFormat=opencover /p:CoverletOutput='../coverage.xml'
         dotnet sonarscanner end /d:sonar.login="${{ secrets.SONAR_TOKEN }}"
