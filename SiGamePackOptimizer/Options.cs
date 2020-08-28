@@ -52,7 +52,7 @@ namespace SiGamePackOptimizer
 
         [Option("imagejpegquality", Required = false, Default = 75,
             HelpText =
-                "Jpeg quality for images. From 0 to 100. Larger number - better quality and larger size. All images will be encoded in JPEG format with given quality")]
+                "Jpeg quality for images. From 1 to 100. Larger number - better quality and larger size. All images will be encoded in JPEG format with given quality")]
         public int ImageSizeReducerJpegQuality
         {
             get => _imageSizeReducerJpegQuality;

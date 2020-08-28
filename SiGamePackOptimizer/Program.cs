@@ -39,6 +39,11 @@ namespace SiGamePackOptimizer
         private static void ConfigureLogger()
         {
             Log.Logger = new LoggerConfiguration()
+#if DEBUG
+                .MinimumLevel.Debug()
+#else
+                .MinimumLevel.Information()
+#endif           
                 .WriteTo.Console()
                 .CreateLogger();
         }
