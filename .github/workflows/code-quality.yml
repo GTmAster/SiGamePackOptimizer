@@ -25,7 +25,7 @@ jobs:
         args: >
           -Dsonar.organization=gtmaster-github
           -Dsonar.projectKey=SiGamePackOptimizer
-          -Dsonar.cs.opencover.reportsPaths="coverage.xml"
+          -Dsonar.cs.opencover.reportsPaths="SiGamePackOptimizer.Tests\coverage.xml"
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
