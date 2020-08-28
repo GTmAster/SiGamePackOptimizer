@@ -1,4 +1,5 @@
 ![unit tests shield](https://img.shields.io/github/workflow/status/GTmAster/SiGamePackOptimizer/Unit%20tests/master)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=SiGamePackOptimizer&metric=alert_status)](https://sonarcloud.io/dashboard?id=SiGamePackOptimizer)
 # SiGamePackOptimizer
 Optimizer for SiGame question packs
 
