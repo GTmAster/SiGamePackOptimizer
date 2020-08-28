@@ -2,7 +2,6 @@
 using System.Drawing;
 using System.Linq;
 using Serilog;
-using Serilog.Core;
 
 namespace SiGamePackOptimizer.ImageSizeReduce
 {

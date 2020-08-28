@@ -7,7 +7,6 @@ namespace SiGamePackOptimizer.Tests
     {
         private readonly Mock<ISiGamePack> _packMock;
         private readonly Mock<IOptimizer> _optimizerMock1, _optimizerMock2, _optimizerMock3;
-        private readonly SiGamePackOptimizerApp _target;
 
         public SiGamePackOptimizerAppTests()
         {
@@ -15,7 +14,6 @@ namespace SiGamePackOptimizer.Tests
             _optimizerMock1 = new Mock<IOptimizer>();
             _optimizerMock2 = new Mock<IOptimizer>();
             _optimizerMock3 = new Mock<IOptimizer>();
-            
         }
 
         [Fact]

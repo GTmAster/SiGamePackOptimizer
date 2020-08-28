@@ -6,7 +6,7 @@ using System.Linq;
 
 namespace SiGamePackOptimizer
 {
-    internal class ZipFileWrapper: IZipFile, IDisposable
+    internal sealed class ZipFileWrapper: IZipFile, IDisposable
     {
         private readonly string _tempFile;
         private ZipArchive _zipArchive;
