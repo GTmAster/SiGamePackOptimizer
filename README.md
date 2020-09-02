@@ -26,3 +26,4 @@ SiGamePackOptimizer.exe <arguments>
 Optimize pack using ImageSizeReducer: make all images 800x600 at most with default JPEG quality
 
 `SiGamePackOptimizer.exe -z ImageSizeReducer -i C:\MyDocuments\pack.siq -o C:\MyDocuments\optimized.siq --imagemaxwidth 800 --imagemaxheight 600`
+
