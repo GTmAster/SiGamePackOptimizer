@@ -6,7 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Autofac" Version="5.2.0" />
+    <PackageReference Include="Autofac" Version="6.3.0" />
     <PackageReference Include="CommandLineParser" Version="2.8.0" />
     <PackageReference Include="Magick.NET-Q8-AnyCPU" Version="7.21.1" />
     <PackageReference Include="Mime" Version="3.2.2" />
